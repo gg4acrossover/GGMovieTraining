@@ -1,0 +1,15 @@
+//
+//  GGMovie-Prefix.pch
+//  GGMovie
+//
+//  Created by viethq on 1/6/16.
+//  Copyright © 2016 viethq. All rights reserved.
+//
+
+#ifndef GGMovie_Prefix_pch
+#define GGMovie_Prefix_pch
+
+#import "GGHelper.h"
+#import <UIImageView+WebCache.h>
+
+#endif /* GGMovie_Prefix_pch */
