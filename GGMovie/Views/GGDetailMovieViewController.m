@@ -11,6 +11,7 @@
 #import "UIScrollView+GGHeaderView.h"
 #import "GGDetailCell.h"
 #import "GGTextCell.h"
+#import "GGThreeInput.h"
 
 @interface GGDetailMovieViewController ()< UITableViewDelegate, UITableViewDataSource>
 
@@ -45,6 +46,9 @@
     [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGDetailCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([GGDetailCell class])];
     
     [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGTextCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GGTextCell class])];
+    
+    [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGThreeInput class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GGThreeInput class])];
+
     
     // add delegate & datasource
     self.mTblView.delegate = self;
@@ -84,7 +88,7 @@
 #pragma mark - Tbl delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,6 +121,17 @@
         return s.height + 1.0f;
     }
     
+    if (indexPath.row == 2)
+    {
+        //1.
+        GGThreeInput *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGThreeInput class])];
+        
+        //2.
+        CGSize s = [pCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        
+        return s.height + 1.0f;
+    }
+    
     return 0.0f;
 }
 
@@ -139,6 +154,15 @@
         
         return pCell;
     }
+    
+    if (indexPath.row == 2)
+    {
+        GGThreeInput *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGThreeInput class])];
+        [self fillCell:pCell withData:nil];
+        
+        return pCell;
+    }
+
     
     return nil;
 }

@@ -1,5 +1,5 @@
 //
-//  GGTextCell.h
+//  GGThreeInput.h
 //  GGMovie
 //
 //  Created by viethq on 1/14/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGTextCell : UITableViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *mLabel;
+@interface GGThreeInput : UITableViewCell
 
 @end

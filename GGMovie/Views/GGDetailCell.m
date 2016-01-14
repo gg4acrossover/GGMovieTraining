@@ -23,8 +23,6 @@
     
     self.mCommentLabel.numberOfLines = 0;
     self.mCommentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    
-    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)layoutSubviews

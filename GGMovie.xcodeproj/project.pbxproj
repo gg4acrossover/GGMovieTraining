@@ -20,6 +20,8 @@
 		DD8AB0A21C4647360004C114 /* GGDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD8AB0A01C4647360004C114 /* GGDetailCell.xib */; };
 		DD90A6A21C4754A900E010BF /* GGTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90A6A01C4754A900E010BF /* GGTextCell.m */; };
 		DD90A6A31C4754A900E010BF /* GGTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90A6A11C4754A900E010BF /* GGTextCell.xib */; };
+		DD90A6A71C479C0900E010BF /* GGThreeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90A6A51C479C0900E010BF /* GGThreeInput.m */; };
+		DD90A6A81C479C0900E010BF /* GGThreeInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90A6A61C479C0900E010BF /* GGThreeInput.xib */; };
 		DDB4A9101C3531250025165B /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A9051C3531240025165B /* BaseNavigationController.m */; };
 		DDB4A9111C3531250025165B /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A90C1C3531250025165B /* Validation.m */; };
 		DDCED0E71C3A8D1200028832 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCED0DA1C3A8D1200028832 /* NSDate+Utilities.m */; };
@@ -61,6 +63,9 @@
 		DD90A69F1C4754A900E010BF /* GGTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTextCell.h; sourceTree = "<group>"; };
 		DD90A6A01C4754A900E010BF /* GGTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTextCell.m; sourceTree = "<group>"; };
 		DD90A6A11C4754A900E010BF /* GGTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGTextCell.xib; sourceTree = "<group>"; };
+		DD90A6A41C479C0900E010BF /* GGThreeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGThreeInput.h; sourceTree = "<group>"; };
+		DD90A6A51C479C0900E010BF /* GGThreeInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGThreeInput.m; sourceTree = "<group>"; };
+		DD90A6A61C479C0900E010BF /* GGThreeInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGThreeInput.xib; sourceTree = "<group>"; };
 		DDB4A9041C3531240025165B /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		DDB4A9051C3531240025165B /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		DDB4A9071C3531240025165B /* BConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BConfig.h; sourceTree = "<group>"; };
@@ -182,6 +187,9 @@
 				DD90A69F1C4754A900E010BF /* GGTextCell.h */,
 				DD90A6A01C4754A900E010BF /* GGTextCell.m */,
 				DD90A6A11C4754A900E010BF /* GGTextCell.xib */,
+				DD90A6A41C479C0900E010BF /* GGThreeInput.h */,
+				DD90A6A51C479C0900E010BF /* GGThreeInput.m */,
+				DD90A6A61C479C0900E010BF /* GGThreeInput.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,6 +426,7 @@
 				DD73AAC11C33CAF7007102C3 /* LaunchScreen.storyboard in Resources */,
 				DD8AB0A21C4647360004C114 /* GGDetailCell.xib in Resources */,
 				DD73AABE1C33CAF7007102C3 /* Assets.xcassets in Resources */,
+				DD90A6A81C479C0900E010BF /* GGThreeInput.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +488,7 @@
 				DD73AAD11C33D2FA007102C3 /* GGListMoviesViewController.m in Sources */,
 				DDCED0E71C3A8D1200028832 /* NSDate+Utilities.m in Sources */,
 				DD8AB0A11C4647360004C114 /* GGDetailCell.m in Sources */,
+				DD90A6A71C479C0900E010BF /* GGThreeInput.m in Sources */,
 				DDE45D801C3D08BA00683ECA /* GGDiscoverListCell.m in Sources */,
 				DDCED0E81C3A8D1200028832 /* NSDictionary+SafeAccess.m in Sources */,
 				DDCED0F91C3A8D8800028832 /* WSRequest.m in Sources */,

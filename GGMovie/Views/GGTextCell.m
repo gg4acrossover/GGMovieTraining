@@ -8,6 +8,10 @@
 
 #import "GGTextCell.h"
 
+@interface GGTextCell()
+
+@end
+
 @implementation GGTextCell
 
 - (void)awakeFromNib
