@@ -15,6 +15,7 @@
     if (![dict isKindOfClass:[NSDictionary class]]) return;
     
     NSArray *pResults = [dict arrayForKey:@"results"];
+    DLog(@"%@", pResults);
     
     NSMutableArray<GGDiscoverModel*> *pArrResults = [[NSMutableArray alloc] initWithCapacity:pResults.count];
     for (NSDictionary *pDict in pResults )

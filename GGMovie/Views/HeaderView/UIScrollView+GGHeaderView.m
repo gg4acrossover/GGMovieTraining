@@ -193,7 +193,7 @@ static void *kUIScrollViewHeaderView;
         }
         
         [self setFrame:CGRectMake(0, contentOffset.y, CGRectGetWidth(self.frame), yOffset)];
-        NSLog(@"%@", NSStringFromCGRect(self.frame));
+        //NSLog(@"%@", NSStringFromCGRect(self.frame));
         
         
         if ([self.mDelegate respondsToSelector:@selector(headerView:didChangeFrame:)])
