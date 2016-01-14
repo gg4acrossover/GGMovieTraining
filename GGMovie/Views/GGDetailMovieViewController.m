@@ -10,6 +10,7 @@
 #import "GGDiscoverInfo.h"
 #import "UIScrollView+GGHeaderView.h"
 #import "GGDetailCell.h"
+#import "GGTextCell.h"
 
 @interface GGDetailMovieViewController ()< UITableViewDelegate, UITableViewDataSource>
 
@@ -40,9 +41,10 @@
     self.title = self.mDetailModel.original_title;
     
     /* tableview setting */
-    [self.mTblView registerClass: [UITableViewCell class]
-          forCellReuseIdentifier: @"identifierTest"];
+    // register cell
+    [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGDetailCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([GGDetailCell class])];
     
+    [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGTextCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GGTextCell class])];
     
     // add delegate & datasource
     self.mTblView.delegate = self;
@@ -58,10 +60,6 @@
     
     [self.mTblView gg_addHeaderImage: pImgView.image
                            andHeight: HEIGHT(pImgView)];
-    
-    
-    // register cell
-    [self.mTblView registerNib:[UINib nibWithNibName:NSStringFromClass([GGDetailCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([GGDetailCell class])];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,31 +84,63 @@
 #pragma mark - Tbl delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //1. create cell
-    GGDetailCell *pTempCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGDetailCell class])];
+    if (indexPath.row == 0)
+    {
+        //1. create cell
+        GGDetailCell *pTempCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGDetailCell class])];
+        
+        //2. fill data for cell
+        [self fillCell:pTempCell withData:self.mDetailModel];
+        
+        //3. height caculator
+        CGSize s = [pTempCell.contentView  systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        DLog(@"cell h: %f", s.height);
+        return s.height + 1.0f;
+    }
     
-    //2. fill data for cell
-    [self fillCell:pTempCell withData:self.mDetailModel];
+    if (indexPath.row == 1)
+    {
+        //1.
+        GGTextCell *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGTextCell class])];
+        
+        //2.
+        [self fillCell:pCell withData:nil];
+        
+        //3.
+        CGSize s = [pCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        
+        return s.height + 1.0f;
+    }
     
-    //3. height caculator
-    CGSize s = [pTempCell.contentView  systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    DLog(@"cell h: %f", s.height);
-    return s.height + 1.0f;
+    return 0.0f;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GGDetailCell *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGDetailCell class])];
+    if (indexPath.row == 0)
+    {
+        GGDetailCell *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGDetailCell class])];
+        
+        [self fillCell:pCell withData:self.mDetailModel];
+        pCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return pCell;
+    }
     
-    [self fillCell:pCell withData:self.mDetailModel];
-    pCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row == 1)
+    {
+        GGTextCell *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGTextCell class])];
+        [self fillCell:pCell withData:nil];
+        
+        return pCell;
+    }
     
-    return pCell;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,9 +158,17 @@
         GGDetailCell *pDetailCell = (GGDetailCell*)cell;
                 
         pDetailCell.mNicknameLabel.text = pModel.original_title;
-        pDetailCell.mCommentLabel.text = @"70-year-old widower Ben Whittaker has discovered that retirement isn't all it's cracked up to be. Seizing an opportunity to get back in the game, he becomes a senior intern at an online fashion site, founded and run by Jules Ostin";
-        
+        pDetailCell.mCommentLabel.text = pModel.overview;
         [pDetailCell.mImageView sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat: @"%@%@", POSTER_BACKDROP_PATH, self.mDetailModel.poster_path]]];
+        
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
+    }
+    
+    if ([cell isKindOfClass:[GGTextCell class]])
+    {
+        GGTextCell *pTxtCell = (GGTextCell*)cell;
+        pTxtCell.mLabel.text = @"70-year-old widower Ben Whittaker has discovered that retirement isn't all it's cracked up to be. Seizing an opportunity to get back in the game, he becomes a senior intern at an online fashion site, founded and run by Jules Ostin";
         
         [cell setNeedsLayout];
         [cell layoutIfNeeded];

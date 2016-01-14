@@ -18,6 +18,8 @@
 		DD73AAD21C33D2FA007102C3 /* GGListMoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD73AAD01C33D2FA007102C3 /* GGListMoviesViewController.xib */; };
 		DD8AB0A11C4647360004C114 /* GGDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8AB09F1C4647360004C114 /* GGDetailCell.m */; };
 		DD8AB0A21C4647360004C114 /* GGDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD8AB0A01C4647360004C114 /* GGDetailCell.xib */; };
+		DD90A6A21C4754A900E010BF /* GGTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90A6A01C4754A900E010BF /* GGTextCell.m */; };
+		DD90A6A31C4754A900E010BF /* GGTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90A6A11C4754A900E010BF /* GGTextCell.xib */; };
 		DDB4A9101C3531250025165B /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A9051C3531240025165B /* BaseNavigationController.m */; };
 		DDB4A9111C3531250025165B /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A90C1C3531250025165B /* Validation.m */; };
 		DDCED0E71C3A8D1200028832 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCED0DA1C3A8D1200028832 /* NSDate+Utilities.m */; };
@@ -56,6 +58,9 @@
 		DD8AB09E1C4647360004C114 /* GGDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGDetailCell.h; sourceTree = "<group>"; };
 		DD8AB09F1C4647360004C114 /* GGDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGDetailCell.m; sourceTree = "<group>"; };
 		DD8AB0A01C4647360004C114 /* GGDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGDetailCell.xib; sourceTree = "<group>"; };
+		DD90A69F1C4754A900E010BF /* GGTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTextCell.h; sourceTree = "<group>"; };
+		DD90A6A01C4754A900E010BF /* GGTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTextCell.m; sourceTree = "<group>"; };
+		DD90A6A11C4754A900E010BF /* GGTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GGTextCell.xib; sourceTree = "<group>"; };
 		DDB4A9041C3531240025165B /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		DDB4A9051C3531240025165B /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		DDB4A9071C3531240025165B /* BConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BConfig.h; sourceTree = "<group>"; };
@@ -174,6 +179,9 @@
 				DD8AB09E1C4647360004C114 /* GGDetailCell.h */,
 				DD8AB09F1C4647360004C114 /* GGDetailCell.m */,
 				DD8AB0A01C4647360004C114 /* GGDetailCell.xib */,
+				DD90A69F1C4754A900E010BF /* GGTextCell.h */,
+				DD90A6A01C4754A900E010BF /* GGTextCell.m */,
+				DD90A6A11C4754A900E010BF /* GGTextCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD90A6A31C4754A900E010BF /* GGTextCell.xib in Resources */,
 				DDE45D811C3D08BA00683ECA /* GGDiscoverListCell.xib in Resources */,
 				DD4728AD1C3E604E00571D17 /* GGDetailMovieViewController.xib in Resources */,
 				DD73AAD21C33D2FA007102C3 /* GGListMoviesViewController.xib in Resources */,
@@ -480,6 +489,7 @@
 				DDB4A9111C3531250025165B /* Validation.m in Sources */,
 				DDE45D791C3CC9F300683ECA /* BaseProgress.m in Sources */,
 				DDF9FE8E1C3FB10B002804A1 /* UIScrollView+GGHeaderView.m in Sources */,
+				DD90A6A21C4754A900E010BF /* GGTextCell.m in Sources */,
 				DD73AAB61C33CAF7007102C3 /* AppDelegate.m in Sources */,
 				DDE45D841C3D190500683ECA /* GGDiscoverInfo.m in Sources */,
 				DD73AAB31C33CAF7007102C3 /* main.m in Sources */,
