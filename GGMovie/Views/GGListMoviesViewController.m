@@ -59,6 +59,7 @@
     [super viewWillAppear:animated];
     /* title view */
     self.title = @"Movies";
+    MAIN_NAV.navigationBarHidden = NO;
 }
 
 #pragma mark - Get list

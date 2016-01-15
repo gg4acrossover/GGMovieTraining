@@ -16,6 +16,7 @@
 @interface GGDetailMovieViewController ()< UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *mTblView;
+@property (assign, nonatomic) BOOL mIsExpandTextCell;
 
 @end
 
@@ -40,6 +41,15 @@
     [super viewDidLoad];
     
     self.title = self.mDetailModel.original_title;
+    
+    /* add btn back */
+    UIButton *pBackButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 20.0f, 20.0f, 20.0f)];
+    [pBackButton setImage:[UIImage imageNamed:@"back_icon"] forState:UIControlStateNormal];
+    [pBackButton addTarget:self
+                    action:@selector(backTouched:)
+          forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:pBackButton];
     
     /* tableview setting */
     // register cell
@@ -85,6 +95,12 @@
     }
 }
 
+#pragma mark - Actions
+- (void)backTouched:(id)sender
+{
+    [MAIN_NAV popViewControllerAnimated:YES];
+}
+
 #pragma mark - Tbl delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -116,9 +132,14 @@
         [self fillCell:pCell withData:nil];
         
         //3.
-        CGSize s = [pCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        if (self.mIsExpandTextCell)
+        {
+            CGSize s = [pCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            
+            return s.height + 1.0f;
+        }
         
-        return s.height + 1.0f;
+        return 55.0f;
     }
     
     if (indexPath.row == 2)
@@ -151,6 +172,7 @@
     {
         GGTextCell *pCell = [self.mTblView dequeueReusableCellWithIdentifier:NSStringFromClass([GGTextCell class])];
         [self fillCell:pCell withData:nil];
+        pCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return pCell;
     }
@@ -169,7 +191,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.row == 1)
+    {
+        self.mIsExpandTextCell = !self.mIsExpandTextCell;
+        [self.mTblView reloadRowsAtIndexPaths:@[indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 #pragma mark - Cell helper
